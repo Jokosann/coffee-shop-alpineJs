@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Coffee-Shop</title>
+		<!-- FONT -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- FEATHER ICON -->
+		<script src="https://unpkg.com/feather-icons"></script>
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<nav>
+				<!-- logo -->
+				<h1 class="logo">Q.Coffee</h1>
+				<!-- nav-menu -->
+				<ul class="nav-menu">
+					<li><a href="#home">home</a></li>
+					<li><a href="#about">about</a></li>
+					<li><a href="#product">products</a></li>
+					<li><a href="#contact">contacts</a></li>
+				</ul>
+				<!-- feature -->
+				<div class="feature">
+					<!-- search -->
+					<div class="search">
+						<i data-feather="search"></i>
+					</div>
+					<!-- shop -->
+					<div class="shop">
+						<i data-feather="shopping-cart"></i>
+					</div>
+					<!-- hamburger -->
+					<div class="hamburger">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<!-- HOME SECTION -->
+		<section id="home">
+			<div class="container">
+				<div class="hero">
+					<div class="hero-content">
+						<h1>Enjoy a new blend of coffee beans</h1>
+						<p>brew or order product coffee based on your mood anywhere anytime</p>
+						<a href="#product" class="hero-btn">
+							<span>order now</span>
+							<div class="arrow">
+								<i data-feather="arrow-up-right"></i>
+							</div>
+						</a>
+					</div>
+					<div class="hero-images">
+						<img src="assets/images/hero.png" alt="hero" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- JS -->
+		<script src="script.js"></script>
+		<script>
+			feather.replace();
+		</script>
+	</body>
+</html>
