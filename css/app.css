@@ -18,7 +18,7 @@ body::-webkit-scrollbar {
 }
 
 section {
-	padding: 4rem 0 2rem;
+	padding: 4rem 0 0;
 }
 
 .container {
@@ -37,6 +37,7 @@ header {
 	top: 1rem;
 	left: 0;
 	position: fixed;
+	z-index: 99999;
 }
 
 nav {
@@ -172,10 +173,11 @@ nav .feature {
 .container .about-title {
 	color: var(--text-color);
 	font-family: var(--playfair-font);
-	font-weight: 600;
-	font-size: 2rem;
+	font-weight: 800;
+	font-size: 2.5rem;
+	line-height: 3rem;
 	text-transform: capitalize;
-	margin-bottom: 3rem;
+	margin: 2.5rem 0;
 	text-align: center;
 }
 
@@ -228,4 +230,108 @@ nav .feature {
 	font-family: var(--poppins-font);
 	font-size: 1rem;
 	line-height: 21px;
+}
+
+/* PRODUCT */
+#product .container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.product-title {
+	width: 500px;
+	text-align: center;
+	margin-top: 2.5rem;
+}
+.product-title h2 {
+	font-size: 1.8rem;
+	font-family: var(--playfair-font);
+	font-weight: 800;
+	margin-bottom: 1rem;
+}
+.product-title p {
+	font-family: var(--poppins-font);
+	font-size: 14px;
+	line-height: 19px;
+	margin-bottom: 2rem;
+}
+
+.container .product-item {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	column-gap: 2.5rem;
+	row-gap: 1.5rem;
+	padding: 2rem;
+	border-radius: 10px;
+	background-color: var(--container-color);
+}
+.product-item .card-item {
+	/* width: 180px; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+	border-radius: 18px;
+	background-color: var(--bg-color);
+}
+.card-item .item-images {
+	width: 110px;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-top: 1rem;
+	margin-bottom: 0.8rem;
+}
+.card-item .item-information {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.6rem;
+	margin-bottom: 2rem;
+}
+.item-information p {
+	width: fit-content;
+	font-size: 10px;
+	font-family: var(--poppins-font);
+	border: 1px solid var(--text-color);
+	padding: 3px 6px;
+	border-radius: 16px;
+}
+.item-information h4 {
+	font-family: var(--playfair-font);
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: var(--main-color);
+}
+.card-item .item-price {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.item-price p {
+	font-size: 14px;
+	font-family: var(--playfair-font);
+	color: var(--main-color);
+}
+.item-price .item-shop {
+	display: grid;
+	place-content: center;
+	width: 25px;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	background-color: var(--second-color);
+	cursor: pointer;
+}
+.item-shop .feather {
+	width: 12px;
+	height: 12px;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: none;
+	color: white;
 }
