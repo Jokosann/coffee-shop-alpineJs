@@ -6,13 +6,28 @@ const searchInput = document.querySelector('.search-input');
 const searchInputBox = document.getElementById('search');
 const shopIcon = document.querySelector('.shop');
 const shopCard = document.querySelector('.shop-card');
-const loves = document.querySelectorAll('.item-love');
+const loves = document.querySelectorAll('.love-parent');
 
-loves.forEach((love) => {
-	love.addEventListener('click', () => {
-		love.classList.toggle('love-active');
+let likes = JSON.parse(localStorage.getItem('love-item')) || [];
+// console.log(loves);
+
+function showLove() {
+	loves.forEach((item, id) => {
+		let loveInfo = likes[id] || { status: 'false' }; // Menggunakan nilai default jika informasi love tidak ada di localStorage
+		likes[id] = loveInfo; // Menyimpan informasi love ke dalam array likes
+		if (loveInfo.status === 'true') {
+			item.innerHTML = `<div class="item-love love-active" id="${id}" onclick="updateStatus(this)">
+				<i data-feather="heart"></i>
+			</div>`;
+		} else {
+			item.innerHTML = `<div class="item-love" id="${id}" onclick="updateStatus(this)">
+				<i data-feather="heart"></i>
+			</div>`;
+		}
 	});
-});
+}
+
+showLove();
 
 links.forEach((link) => {
 	link.addEventListener('click', function (e) {
@@ -26,6 +41,13 @@ links.forEach((link) => {
 		}
 	});
 });
+
+function updateStatus(selectLove) {
+	selectLove.classList.toggle('love-active');
+	let loveId = selectLove.id;
+	likes[loveId].status = selectLove.classList.contains('love-active') ? 'true' : 'false';
+	localStorage.setItem('love-item', JSON.stringify(likes));
+}
 
 function hamburgerClick() {
 	navMenu.classList.toggle('show-navbar');

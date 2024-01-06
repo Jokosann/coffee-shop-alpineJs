@@ -7,6 +7,14 @@
 		max-width: 920px;
 	}
 
+	/* HEADER */
+	.feature .search-input {
+		width: 40vw;
+	}
+	.feature .shop-card.shop-active {
+		width: 340px;
+	}
+
 	/* HERO */
 	.hero-content h1 {
 		font-size: 3.3rem;
@@ -34,6 +42,14 @@
 
 	.container {
 		max-width: 768px;
+	}
+
+	/* HEADER */
+	.feature .search-input {
+		width: 45vw;
+	}
+	.feature .shop-card.shop-active {
+		width: 300px;
 	}
 
 	/* HERO */
@@ -117,6 +133,14 @@
 		max-width: 600px;
 	}
 
+	/* HEADER */
+	.feather .search-input {
+		width: 50vw;
+	}
+	.feature .shop-card.shop-active {
+		width: 260px;
+	}
+
 	/* HERO */
 	.hero {
 		flex-direction: column;
@@ -173,7 +197,7 @@
 		text-align: center;
 		font-size: 2.5rem;
 		line-height: 3rem;
-		margin-bottom: 2rem;
+		margin-bottom: 3rem;
 		position: relative;
 		z-index: 99;
 	}
@@ -220,6 +244,9 @@
 	.feature .search-input {
 		width: 50vw;
 	}
+	.feature .shop-card.shop-active {
+		width: 50vw;
+	}
 
 	.hero-content h1 {
 		max-width: 75%;
@@ -251,9 +278,7 @@
 	.feature .search-input {
 		width: 55vw;
 	}
-	.feature .shop-card.shop-active {
-		width: 60vw;
-	}
+
 	.hero-content h1 {
 		max-width: 100%;
 		padding-right: 10%;
@@ -293,6 +318,14 @@
 	}
 	.hamburger.hamburger-active div:nth-child(3) {
 		transform: rotate(-40deg) translate(4px, -4px);
+	}
+
+	/* HEADER */
+	.feature .search-input {
+		width: 60vw;
+	}
+	.feature .shop-card.shop-active {
+		width: 60vw;
 	}
 
 	/* HERO */
