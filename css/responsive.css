@@ -70,7 +70,7 @@
 		height: 0;
 		position: absolute;
 		background-color: var(--text-color);
-		border-radius: 12px;
+		border-radius: 20px;
 		flex-direction: column;
 		align-items: center;
 		top: 110%;
@@ -83,8 +83,8 @@
 	}
 	.nav-menu.show-navbar {
 		height: auto;
-		padding: 2rem 0;
-		gap: 2rem;
+		padding: 3rem 0;
+		gap: 2.5rem;
 	}
 
 	.feature .hamburger {
@@ -216,6 +216,11 @@
 		padding-inline: 1rem;
 	}
 
+	/* HEADER */
+	.feature .search-input {
+		width: 50vw;
+	}
+
 	.hero-content h1 {
 		max-width: 75%;
 		font-size: 2.4rem;
@@ -242,6 +247,13 @@
 }
 
 @media screen and (max-width: 512px) {
+	/* HEADER */
+	.feature .search-input {
+		width: 55vw;
+	}
+	.feature .shop-card.shop-active {
+		width: 60vw;
+	}
 	.hero-content h1 {
 		max-width: 100%;
 		padding-right: 10%;
