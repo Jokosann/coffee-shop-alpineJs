@@ -12,7 +12,7 @@
 		width: 40vw;
 	}
 	.feature .shop-card.shop-active {
-		width: 340px;
+		width: 380px;
 	}
 
 	/* HERO */
@@ -49,7 +49,7 @@
 		width: 45vw;
 	}
 	.feature .shop-card.shop-active {
-		width: 300px;
+		width: 380px;
 	}
 
 	/* HERO */
@@ -80,6 +80,7 @@
 @media screen and (max-width: 768px) {
 	nav {
 		max-width: 600px;
+		padding-inline: 1rem;
 	}
 	nav .nav-menu {
 		width: 100%;
@@ -138,7 +139,7 @@
 		width: 50vw;
 	}
 	.feature .shop-card.shop-active {
-		width: 260px;
+		width: 350px;
 	}
 
 	/* HERO */
@@ -208,8 +209,8 @@
 	.about-content p {
 		text-align: center;
 		color: var(--bg-color);
-		font-size: 14px;
-		line-height: 19px;
+		font-size: 15px;
+		line-height: 20px;
 		position: relative;
 		z-index: 99;
 	}
@@ -245,7 +246,7 @@
 		width: 50vw;
 	}
 	.feature .shop-card.shop-active {
-		width: 50vw;
+		width: 350px;
 	}
 
 	.hero-content h1 {
@@ -277,6 +278,9 @@
 	/* HEADER */
 	.feature .search-input {
 		width: 55vw;
+	}
+	.feature .shop-card.shop-active {
+		width: 310px;
 	}
 
 	.hero-content h1 {

@@ -6,29 +6,28 @@ const searchInput = document.querySelector('.search-input');
 const searchInputBox = document.getElementById('search');
 const shopIcon = document.querySelector('.shop');
 const shopCard = document.querySelector('.shop-card');
-const loves = document.querySelectorAll('.love-parent');
+const loves = document.querySelectorAll('.item-love');
 
+// !variabel status yang disimpan di JSON
 let likes = JSON.parse(localStorage.getItem('love-item')) || [];
-// console.log(loves);
 
-function showLove() {
-	loves.forEach((item, id) => {
-		let loveInfo = likes[id] || { status: 'false' }; // Menggunakan nilai default jika informasi love tidak ada di localStorage
-		likes[id] = loveInfo; // Menyimpan informasi love ke dalam array likes
-		if (loveInfo.status === 'true') {
-			item.innerHTML = `<div class="item-love love-active" id="${id}" onclick="updateStatus(this)">
-				<i data-feather="heart"></i>
-			</div>`;
-		} else {
-			item.innerHTML = `<div class="item-love" id="${id}" onclick="updateStatus(this)">
-				<i data-feather="heart"></i>
-			</div>`;
-		}
-	});
-}
+// function untuk menampilkan love in caed product
+// function showLove() {
+// 	loves.forEach((item, id) => {
+// 		let loveInfo = likes[id] || { status: 'false' }; // Menggunakan nilai default jika informasi love tidak ada di localStorage
+// 		likes[id] = loveInfo; // Menyimpan informasi love ke dalam array likes
+// 		console.log(loveInfo);
+// 		if (loveInfo.status === 'true') {
+// 			item.classList.add('love-active');
+// 		} else {
+// 			item.classList.remove('love-active');
+// 		}
+// 	});
+// }
 
-showLove();
+// showLove();
 
+// menambahkan smooth scrollibg pada semua element yang memiliki targer #href
 links.forEach((link) => {
 	link.addEventListener('click', function (e) {
 		e.preventDefault();
@@ -42,13 +41,15 @@ links.forEach((link) => {
 	});
 });
 
+// function updatestatus
 function updateStatus(selectLove) {
 	selectLove.classList.toggle('love-active');
-	let loveId = selectLove.id;
-	likes[loveId].status = selectLove.classList.contains('love-active') ? 'true' : 'false';
-	localStorage.setItem('love-item', JSON.stringify(likes));
+	// let loveId = selectLove.id;
+	// likes[loveId].status = selectLove.classList.contains('love-active') ? 'true' : 'false';
+	// localStorage.setItem('love-item', JSON.stringify(likes));
 }
 
+// function hamburger if click
 function hamburgerClick() {
 	navMenu.classList.toggle('show-navbar');
 	hamburger.classList.toggle('hamburger-active');
@@ -56,6 +57,7 @@ function hamburgerClick() {
 	searchInput.classList.remove('search-active');
 }
 
+// function search if click
 function searchClick() {
 	searchInput.classList.toggle('search-active');
 	shopCard.classList.remove('shop-active');
@@ -64,6 +66,7 @@ function searchClick() {
 	searchInputBox.focus();
 }
 
+// function shop if click
 function shopClick() {
 	shopCard.classList.toggle('shop-active');
 	searchInput.classList.remove('search-active');
@@ -71,9 +74,11 @@ function shopClick() {
 	hamburger.classList.remove('hamburger-active');
 }
 
+// function ketika user mengclick apapun
 function handleCloseOutside(e) {
 	if (
-		!hamburger.contains(e.target) &&
+		!hamburger &&
+		!navMenu.contains(e.target) &&
 		!shopCard.contains(e.target) &&
 		!shopIcon.contains(e.target) &&
 		!searchInput.contains(e.target) &&
@@ -86,6 +91,7 @@ function handleCloseOutside(e) {
 	}
 }
 
+// !eventListener
 hamburger.addEventListener('click', hamburgerClick);
 searchIcon.addEventListener('click', searchClick);
 shopIcon.addEventListener('click', shopClick);

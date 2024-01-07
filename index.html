@@ -15,49 +15,116 @@
 		<script src="https://unpkg.com/feather-icons"></script>
 		<!-- CSS -->
 		<link rel="stylesheet" href="css/style.css" />
+
+		<!-- ALPINE.JS -->
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	</head>
 	<body>
-		<!-- HEADER -->
+		<!-- HEADER START -->
 		<header>
-			<nav>
-				<!-- logo -->
-				<h1 class="logo"><a href="#home">Q.Coffee</a></h1>
-				<!-- nav-menu -->
+			<nav x-data>
+				<!-- logo start -->
+				<h1 class="logo"><a href="#home">Q.Cafe</a></h1>
+				<!-- logo end -->
+
+				<!-- nav-menu start -->
 				<ul class="nav-menu">
 					<li><a href="#home">home</a></li>
 					<li><a href="#about">about</a></li>
 					<li><a href="#product">products</a></li>
 					<li><a href="#contact">contacts</a></li>
 				</ul>
-				<!-- feature -->
+				<!-- nav-menu end -->
+
+				<!-- feature start-->
 				<div class="feature">
-					<!-- search -->
+					<!-- search start -->
 					<div class="search">
 						<i id="search-icon" data-feather="search"></i>
 					</div>
+					<!-- search end -->
+
+					<!-- search-input start -->
 					<div class="search-input">
 						<i id="search-icon" data-feather="search"></i>
 						<input type="search" id="search" placeholder="Search Products..." />
 					</div>
-					<!-- shop -->
+					<!-- search end -->
+
+					<!-- shop start -->
 					<div class="shop">
 						<i data-feather="shopping-cart"></i>
+						<span
+							class="quantity"
+							x-show="$store.cart.quantity"
+							x-text="$store.cart.quantity"
+						></span>
 					</div>
-					<div class="shop-card"></div>
-					<!-- hamburger -->
+					<!-- shop end -->
+
+					<!-- shop-card start-->
+					<div class="shop-card">
+						<template x-for="(item, index) in $store.cart.items" x-keys="index">
+							<div class="coffee-user">
+								<img :src="`/assets/images/${item.img}`" :alt="item.name" />
+								<div class="coffee-detail">
+									<p x-text="item.name"></p>
+									<div class="counts">
+										<span x-text="dolar(item.price)"></span>&times;
+										<button id="remove">&minus;</button> <span x-text="item.total"></span>
+										<button id="add">&plus;</button> &equals;<span></span>
+									</div>
+								</div>
+							</div>
+						</template>
+
+						<!-- price start -->
+						<div class="price-coffee">
+							<p>total : <span>Rp.20.000</span></p>
+						</div>
+						<!-- price end -->
+
+						<!-- customer start -->
+						<div class="customer">
+							<h2>Customer Detail</h2>
+							<form>
+								<div class="customer-input-grub">
+									<i data-feather="user"></i>
+									<input type="text" autocomplete="off" placeholder="John Anderson" />
+								</div>
+								<div class="customer-input-grub">
+									<i data-feather="mail"></i>
+									<input type="email" autocomplete="off" placeholder="exempel@gmail.com" />
+								</div>
+								<div class="customer-input-grub">
+									<i data-feather="phone"></i>
+									<input type="text" autocomplete="off" placeholder="0812-3456-7890" />
+								</div>
+								<button type="submit" class="customer-btn">Checkout</button>
+							</form>
+						</div>
+						<!-- customer end -->
+					</div>
+					<!-- shop card end -->
+
+					<!-- hamburger start -->
 					<div class="hamburger">
 						<div></div>
 						<div></div>
 						<div></div>
 					</div>
+					<!-- hamburger end -->
 				</div>
+				<!-- feature end -->
 			</nav>
 		</header>
+		<!-- HEADER END -->
 
-		<!-- HOME SECTION -->
+		<!-- HOME SECTION START -->
 		<section id="home">
 			<div class="container">
 				<div class="hero">
+					<!-- hero-content start -->
 					<div class="hero-content">
 						<h1>Enjoy a new blend of coffee beans</h1>
 						<p>brew or order product coffee based on your mood anywhere anytime</p>
@@ -68,16 +135,22 @@
 							</div>
 						</a>
 					</div>
+					<!-- hero-content end -->
+
+					<!-- hero-images start -->
 					<div class="hero-images">
 						<img src="assets/images/hero.png" alt="hero" />
 					</div>
+					<!-- hero-images end -->
 				</div>
 			</div>
 		</section>
+		<!-- HOME SECTION END -->
 
-		<!-- ABOUT SECTION -->
+		<!-- ABOUT SECTION START -->
 		<section id="about">
 			<div class="container">
+				<!-- about-title start -->
 				<div class="about-title">
 					<h2>about us</h2>
 					<p>
@@ -85,10 +158,17 @@
 						blends with friendly conversations.
 					</p>
 				</div>
+				<!-- about-title start -->
+
+				<!-- about start -->
 				<div class="about">
+					<!-- about-img start -->
 					<div class="about-img">
 						<img src="assets/images/about.jpg" alt="about" />
 					</div>
+					<!-- about-img start -->
+
+					<!-- about-content start -->
 					<div class="about-content">
 						<h4>What make our coffee spesial?</h4>
 						<p>
@@ -96,14 +176,32 @@
 							enticed passersby. With its rustic charm and comfortable seating, the coffee shop
 							provided a perfect retreat for caffeine enthusiasts.
 						</p>
+						<!-- <ol style="list-style-type: lower-greek">
+							<li>
+								Nestled in the heart of the city, the coffee shop boasts a cozy ambiance and
+								aromatic brews.
+							</li>
+							<li>
+								Nestled in the heart of the city, the coffee shop boasts a cozy ambiance and
+								aromatic brews.
+							</li>
+							<li>
+								The barista skillfully prepares a variety of espresso-based drinks, from
+								classic lattes to velvety cappuccinos.
+							</li>
+						</ol> -->
 					</div>
+					<!-- about-content end -->
 				</div>
+				<!-- about end -->
 			</div>
 		</section>
+		<!-- ABOUT SECTION END -->
 
-		<!-- PRODUCT SECTION -->
-		<section id="product">
+		<!-- PRODUCT SECTION START -->
+		<section id="product" x-data="products">
 			<div class="container">
+				<!-- product-title start -->
 				<div class="product-title">
 					<h2>Our Top Selling Products</h2>
 					<p>
@@ -111,133 +209,63 @@
 						savory snacks at the inviting coffee shop, promising a delightful experience.
 					</p>
 				</div>
+				<!-- product-title start -->
+
+				<!-- product-item start -->
 				<div class="product-item">
-					<!-- 1 -->
-					<div class="card-item">
-						<div class="love-parent">
-							<!-- <div class="item-love" id="0"></div> -->
-						</div>
-
-						<div class="item-images">
-							<img src="assets/images/product-1.png" alt="1" />
-						</div>
-						<div class="item-information">
-							<p>4 Types Avaiaible</p>
-							<h4>Instans Coffee</h4>
-						</div>
-						<div class="item-price">
-							<p>$14</p>
-							<div class="item-shop">
-								<i data-feather="shopping-cart"></i>
+					<!-- card start -->
+					<template x-for="(item, index) in items" x-key="index">
+						<div class="card-item">
+							<div class="love-parent">
+								<div class="item-love" :id="item.id" onclick="updateStatus(this)">
+									<svg
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<use href="/assets/feather-sprite.svg#heart" />
+									</svg>
+								</div>
+								<span class="total-love">1.6k</span>
+							</div>
+							<div class="item-images">
+								<img :src="`assets/images/${item.img}`" :alt="item.name" />
+							</div>
+							<div class="item-information">
+								<p>4 Types Avaiaible</p>
+								<h4 x-text="item.name"></h4>
+							</div>
+							<div class="item-price">
+								<p x-text="dolar(item.price)"></p>
+								<div class="item-shop" @click="$store.cart.add(item)">
+									<svg
+										width="13"
+										height="13"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<use href="/assets/feather-sprite.svg#shopping-cart" />
+									</svg>
+								</div>
 							</div>
 						</div>
-					</div>
-					<!-- 2 -->
-					<div class="card-item">
-						<div class="love-parent">
-							<!-- <div class="item-love" id="1"></div> -->
-						</div>
-
-						<div class="item-images">
-							<img src="assets/images/product-2.png" alt="2" />
-						</div>
-						<div class="item-information">
-							<p>4 Types Avaiaible</p>
-							<h4>Black Coffee</h4>
-						</div>
-						<div class="item-price">
-							<p>$16</p>
-							<div class="item-shop">
-								<i data-feather="shopping-cart"></i>
-							</div>
-						</div>
-					</div>
-					<!-- 3 -->
-					<div class="card-item">
-						<div class="love-parent">
-							<!-- <div class="item-love" id="2"></div> -->
-						</div>
-						<div class="item-images">
-							<img src="assets/images/product-3.png" alt="3" />
-						</div>
-						<div class="item-information">
-							<p>4 Types Avaiaible</p>
-							<h4>Latte</h4>
-						</div>
-						<div class="item-price">
-							<p>$14</p>
-							<div class="item-shop">
-								<i data-feather="shopping-cart"></i>
-							</div>
-						</div>
-					</div>
-					<!-- 4 -->
-					<div class="card-item">
-						<div class="love-parent">
-							<!-- <div class="item-love" id="3"></div> -->
-						</div>
-
-						<div class="item-images">
-							<img src="assets/images/product-4.png" alt="4" />
-						</div>
-						<div class="item-information">
-							<p>4 Types Avaiaible</p>
-							<h4>Cappuccino</h4>
-						</div>
-						<div class="item-price">
-							<p>$14</p>
-							<div class="item-shop">
-								<i data-feather="shopping-cart"></i>
-							</div>
-						</div>
-					</div>
-					<!-- 5 -->
-					<div class="card-item">
-						<div class="love-parent">
-							<!-- <div class="item-love" id="4"></div> -->
-						</div>
-
-						<div class="item-images">
-							<img src="assets/images/product-5.png" alt="5" />
-						</div>
-						<div class="item-information">
-							<p>4 Types Avaiaible</p>
-							<h4>Expresso</h4>
-						</div>
-						<div class="item-price">
-							<p>$16</p>
-							<div class="item-shop">
-								<i data-feather="shopping-cart"></i>
-							</div>
-						</div>
-					</div>
-					<!-- 6 -->
-					<div class="card-item">
-						<div class="love-parent">
-							<!-- <div class="item-love" id="5"></div> -->
-						</div>
-
-						<div class="item-images">
-							<img src="assets/images/product-6.png" alt="6" />
-						</div>
-						<div class="item-information">
-							<p>4 Types Avaiaible</p>
-							<h4>Mocha</h4>
-						</div>
-						<div class="item-price">
-							<p>$12</p>
-							<div class="item-shop">
-								<i data-feather="shopping-cart"></i>
-							</div>
-						</div>
-					</div>
+					</template>
+					<!-- card end-->
 				</div>
+				<!-- product-item end -->
 			</div>
 		</section>
+		<!-- PRODUCT SECTION END -->
 
-		<!-- CONTACT SECTION -->
+		<!-- CONTACT SECTION START -->
 		<section id="contact">
 			<div class="container">
+				<!-- contact-title start -->
 				<div class="contact-title">
 					<h2>Contact US</h2>
 					<p>
@@ -245,7 +273,11 @@
 						free to contact us, and we'll be delighted to assist you.
 					</p>
 				</div>
+				<!-- contact-title start -->
+
+				<!-- contact-content start -->
 				<div class="contact-content">
+					<!-- map start -->
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1677.397104403682!2d101.87720169307327!3d0.6704807246622974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d43179535046ff%3A0x53515dc391e39b0f!2sSawit%20permai!5e0!3m2!1sid!2sid!4v1704462970587!5m2!1sid!2sid"
 						allowfullscreen=""
@@ -253,6 +285,9 @@
 						referrerpolicy="no-referrer-when-downgrade"
 						class="map"
 					></iframe>
+					<!-- map end -->
+
+					<!-- form start -->
 					<form>
 						<div class="input-grub">
 							<i data-feather="user"></i>
@@ -268,13 +303,18 @@
 						</div>
 						<button type="submit" class="form-btn">Send Message</button>
 					</form>
+					<!-- form end -->
 				</div>
+				<!-- contact-content end -->
 			</div>
 		</section>
+		<!-- CONTACT SECTION END -->
 
-		<!-- JS -->
+		<!-- SCRIPT.JS -->
 		<script src="script.js"></script>
-		<!-- feather icon -->
+		<!-- APP.JS -->
+		<script src="/src/app.js"></script>
+		<!-- feather iconJS -->
 		<script>
 			feather.replace();
 		</script>
