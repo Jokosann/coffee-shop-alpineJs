@@ -64,28 +64,36 @@
 
 					<!-- shop-card start-->
 					<div class="shop-card">
-						<template x-for="(item, index) in $store.cart.items" x-keys="index">
-							<div class="coffee-user">
-								<img :src="`/assets/images/${item.img}`" :alt="item.name" />
-								<div class="coffee-detail">
-									<p x-text="item.name"></p>
-									<div class="counts">
-										<span x-text="dolar(item.price)"></span>&times;
-										<button id="remove">&minus;</button> <span x-text="item.total"></span>
-										<button id="add">&plus;</button> &equals;<span></span>
+						<div class="coffee-user-container">
+							<template x-for="(item, index) in $store.cart.items" x-keys="index">
+								<div class="coffee-user">
+									<img :src="`/assets/images/${item.img}`" :alt="item.name" />
+									<div class="coffee-detail">
+										<p x-text="item.name"></p>
+										<div class="counts">
+											<span x-text="dolar(item.price)"></span>&times;
+											<button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+											<span x-text="item.quantity"></span>
+											<button id="add" @click="$store.cart.add(item)">&plus;</button>
+											&equals;<span x-text="dolar(item.total)"></span>
+										</div>
 									</div>
 								</div>
-							</div>
-						</template>
+							</template>
+						</div>
+
+						<!-- cart empty start -->
+						<h4 x-show="!$store.cart.items.length" class="empty">Cart Is Empty</h4>
+						<!-- cart empty end -->
 
 						<!-- price start -->
-						<div class="price-coffee">
-							<p>total : <span>Rp.20.000</span></p>
+						<div x-show="$store.cart.items.length" class="price-coffee">
+							<p>total : <span x-text="dolar($store.cart.total)"></span></p>
 						</div>
 						<!-- price end -->
 
 						<!-- customer start -->
-						<div class="customer">
+						<div x-show="$store.cart.items.length" class="customer">
 							<h2>Customer Detail</h2>
 							<form>
 								<div class="customer-input-grub">

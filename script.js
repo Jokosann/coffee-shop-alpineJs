@@ -8,6 +8,8 @@ const shopIcon = document.querySelector('.shop');
 const shopCard = document.querySelector('.shop-card');
 const loves = document.querySelectorAll('.item-love');
 
+// taskBox.classList.toggle('overflow', taskBox.offsetHeight > 204);
+
 // !variabel status yang disimpan di JSON
 let likes = JSON.parse(localStorage.getItem('love-item')) || [];
 
@@ -77,7 +79,7 @@ function shopClick() {
 // function ketika user mengclick apapun
 function handleCloseOutside(e) {
 	if (
-		!hamburger &&
+		!hamburger.contains(e.target) &&
 		!navMenu.contains(e.target) &&
 		!shopCard.contains(e.target) &&
 		!shopIcon.contains(e.target) &&
