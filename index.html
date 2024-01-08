@@ -4,20 +4,21 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Coffee-Shop</title>
-		<!-- FONT -->
+		<!-- font -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
-		<!-- FEATHER ICON -->
+		<!-- feather icon -->
 		<script src="https://unpkg.com/feather-icons"></script>
-		<!-- CSS -->
+		<!-- styleCSS -->
 		<link rel="stylesheet" href="css/style.css" />
-
-		<!-- ALPINE.JS -->
+		<!-- alpineJS -->
 		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+		<!-- app(alpineJS) -->
+		<script src="/src/app.js" async></script>
 	</head>
 	<body>
 		<!-- HEADER START -->
@@ -71,11 +72,11 @@
 									<div class="coffee-detail">
 										<p x-text="item.name"></p>
 										<div class="counts">
-											<span x-text="dolar(item.price)"></span>&times;
+											<span x-text="rupiah(item.price)"></span>&times;
 											<button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
 											<span x-text="item.quantity"></span>
 											<button id="add" @click="$store.cart.add(item)">&plus;</button>
-											&equals;<span x-text="dolar(item.total)"></span>
+											&equals;<span x-text="rupiah(item.total)"></span>
 										</div>
 									</div>
 								</div>
@@ -88,28 +89,49 @@
 
 						<!-- price start -->
 						<div x-show="$store.cart.items.length" class="price-coffee">
-							<p>total : <span x-text="dolar($store.cart.total)"></span></p>
+							<p>total : <span x-text="rupiah($store.cart.total)"></span></p>
 						</div>
 						<!-- price end -->
 
 						<!-- customer start -->
 						<div x-show="$store.cart.items.length" class="customer">
 							<h2>Customer Detail</h2>
-							<form>
+							<form id="checkout-form">
+								<input
+									type="hidden"
+									name="items"
+									x-model="JSON.stringify($store.cart.items)"
+								/>
+								<input type="hidden" name="total" x-model="$store.cart.total" />
 								<div class="customer-input-grub">
 									<i data-feather="user"></i>
-									<input type="text" autocomplete="off" placeholder="John Anderson" />
+									<input
+										type="text"
+										name="name"
+										autocomplete="off"
+										placeholder="John Anderson"
+									/>
 								</div>
 								<div class="customer-input-grub">
 									<i data-feather="mail"></i>
-									<input type="email" autocomplete="off" placeholder="exempel@gmail.com" />
+									<input
+										type="email"
+										name="email"
+										autocomplete="off"
+										placeholder="exempel@gmail.com"
+									/>
 								</div>
 								<div class="customer-input-grub">
 									<i data-feather="phone"></i>
-									<input type="text" autocomplete="off" placeholder="0812-3456-7890" />
+									<input
+										type="number"
+										name="phone"
+										autocomplete="off"
+										placeholder="0812-3456-7890"
+									/>
 								</div>
-								<button type="submit" class="customer-btn">Checkout</button>
 							</form>
+							<button type="submit" class="customer-btn disabled">Checkout</button>
 						</div>
 						<!-- customer end -->
 					</div>
@@ -236,7 +258,7 @@
 										<use href="/assets/feather-sprite.svg#heart" />
 									</svg>
 								</div>
-								<span class="total-love">1.6k</span>
+								<span class="total-love">1.3k</span>
 							</div>
 							<div class="item-images">
 								<img :src="`assets/images/${item.img}`" :alt="item.name" />
@@ -246,7 +268,7 @@
 								<h4 x-text="item.name"></h4>
 							</div>
 							<div class="item-price">
-								<p x-text="dolar(item.price)"></p>
+								<p x-text="rupiah(item.price)"></p>
 								<div class="item-shop" @click="$store.cart.add(item)">
 									<svg
 										width="13"
@@ -318,10 +340,9 @@
 		</section>
 		<!-- CONTACT SECTION END -->
 
-		<!-- SCRIPT.JS -->
+		<!-- scriptJS -->
 		<script src="script.js"></script>
-		<!-- APP.JS -->
-		<script src="/src/app.js"></script>
+
 		<!-- feather iconJS -->
 		<script>
 			feather.replace();

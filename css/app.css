@@ -29,6 +29,7 @@ img {
 	height: auto;
 }
 
+/* todo: HEADER START */
 header {
 	width: 100%;
 	top: 1rem;
@@ -37,6 +38,7 @@ header {
 	z-index: 99999;
 }
 
+/* nav */
 nav {
 	position: relative;
 	background-color: var(--text-color);
@@ -53,6 +55,8 @@ nav {
 	-webkit-box-shadow: 0px 9px 19px -10px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 0px 9px 19px -10px rgba(0, 0, 0, 0.75);
 }
+
+/* nav logo end */
 nav .logo {
 	font-family: var(--playfair-font);
 	font-size: 1.4rem;
@@ -63,6 +67,9 @@ nav .logo a {
 	color: var(--container-color);
 	text-decoration: none;
 }
+/* nav logo end */
+
+/* nav menu start */
 nav .nav-menu {
 	display: flex;
 	gap: 1.1rem;
@@ -78,6 +85,9 @@ nav .nav-menu {
 	text-transform: capitalize;
 	transition: all 300ms;
 }
+/* nav menu end */
+
+/*feature start */
 nav .feature {
 	display: flex;
 	align-items: center;
@@ -85,6 +95,7 @@ nav .feature {
 	gap: 0.7rem;
 	color: var(--bg-color);
 }
+/* search start */
 .feature .search-input {
 	position: absolute;
 	width: 30vw;
@@ -137,7 +148,8 @@ nav .feature {
 	width: 100%;
 	height: 100%;
 }
-
+/* search end */
+/* shop icon start */
 .feature .shop {
 	position: relative;
 }
@@ -155,7 +167,8 @@ nav .feature {
 	border-radius: 50%;
 	font-size: 10px;
 }
-
+/* shop icon start */
+/* shop card start */
 .feature .shop-card {
 	position: absolute;
 	top: 110%;
@@ -171,6 +184,7 @@ nav .feature {
 	width: 380px;
 	padding: 0 1rem 1rem;
 }
+/* empty */
 .shop-card .empty {
 	text-align: center;
 	margin-top: 1rem;
@@ -178,7 +192,7 @@ nav .feature {
 	font-weight: 600;
 	font-size: 14px;
 }
-
+/* !beta */
 /* .shop-card .coffee-user-container {
 	width: 100%;
 	max-height: 242px;
@@ -187,6 +201,7 @@ nav .feature {
 	overflow-y: scroll;
 } */
 
+/* coffee-user start */
 .shop-card .coffee-user {
 	width: 100%;
 	display: flex;
@@ -232,6 +247,9 @@ nav .feature {
 	margin-inline: 3px;
 	margin-top: -3px;
 }
+/* coffee-detail end */
+
+/* price-coffee start*/
 .shop-card .price-coffee {
 	text-align: center;
 	padding: 1rem;
@@ -247,8 +265,9 @@ nav .feature {
 	font-size: 14px;
 	font-weight: 500;
 }
+/* price-coffee end */
 
-/* custemer */
+/* custemer start */
 .shop-card .customer {
 	width: 100%;
 }
@@ -295,25 +314,36 @@ nav .feature {
 	color: var(--main-color);
 	opacity: 0.7;
 }
-.customer form .customer-btn {
+.customer .customer-btn {
 	margin-top: 0.5rem;
 	background-color: var(--main-color);
 	border: none;
 	border-radius: 4px;
 	color: var(--bg-color);
 	height: 30px;
+	width: 5rem;
 	padding-inline: 0.8rem;
 	cursor: pointer;
 }
+.customer .customer-btn.disabled {
+	background-color: #999;
+	cursor: not-allowed;
+}
+/* customer end */
 
+/* every where:: */
 .feature :where(.search, .shop, .hamburger) {
 	cursor: pointer;
 }
 
+/* hamburger start */
 .feature .hamburger {
 	display: none;
 }
-/* !feather icon */
+/* hamburger end */
+/* feature end */
+
+/* !feather icon global */
 .feather {
 	width: 16px;
 	height: 16px;
@@ -323,12 +353,15 @@ nav .feature {
 	stroke-linejoin: round;
 	fill: none;
 }
+/* todo: HEADER END */
 
-/* HERO */
+/* todo: HERO START */
 .hero {
 	display: flex;
 	padding-top: 2.5rem;
 }
+
+/* hero content start */
 .hero .hero-content {
 	width: 50%;
 	display: flex;
@@ -383,17 +416,20 @@ nav .feature {
 .hero-btn:hover .arrow {
 	transform: rotate(135deg);
 }
+/* heroo content end */
 
+/* hero images start */
 .hero .hero-images {
 	width: 50%;
 }
-
 .hero .hero-images {
 	display: grid;
 	place-content: center;
 }
+/* hero images end */
+/* todo: HERO END */
 
-/* ABOUT */
+/* todo: ABOUT START */
 #about .container,
 #product .container,
 #contact .container {
@@ -430,12 +466,15 @@ nav .feature {
 	margin-bottom: 2rem;
 }
 
+/* about start */
 .about {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: 2rem;
 }
+
+/* about img start */
 .about .about-img {
 	border-radius: 16px;
 	overflow: hidden;
@@ -451,6 +490,9 @@ nav .feature {
 	transform: scale(1.1);
 	transition: all 300ms;
 }
+/* about img end */
+
+/* about content start */
 .about .about-content {
 	width: 50%;
 	display: flex;
@@ -481,8 +523,11 @@ nav .feature {
 	font-size: 14px;
 	line-height: 19px;
 }
+/* about content end */
+/* todo: ABOUT END */
 
-/* PRODUCT */
+/* todo: PRODUCT START */
+/* product item start */
 .container .product-item {
 	width: 100%;
 	display: grid;
@@ -494,6 +539,8 @@ nav .feature {
 	padding: 1.5rem 2rem;
 	background-color: var(--container-color);
 }
+
+/* card item start*/
 .product-item .card-item {
 	min-height: 350px;
 	display: flex;
@@ -508,6 +555,7 @@ nav .feature {
 	-webkit-box-shadow: 0px 9px 19px -10px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 0px 9px 19px -10px rgba(0, 0, 0, 0.75);
 }
+/* love start */
 .card-item .love-parent {
 	align-self: flex-start;
 	display: flex;
@@ -520,16 +568,18 @@ nav .feature {
 	color: red;
 }
 .card-item .item-love svg {
-	width: 18px;
-	height: 18px;
+	width: 16px;
+	height: 16px;
 }
 .love-parent .total-love {
-	font-family: var(--poppins-font);
+	font-family: var(--playfair-font);
 	display: block;
 	font-size: 11px;
 	margin-left: 1px;
+	margin-top: -5px;
 }
-
+/* love end */
+/* card img start */
 .card-item .item-images {
 	display: grid;
 	place-content: center;
@@ -551,7 +601,9 @@ nav .feature {
 	object-fit: cover;
 	user-select: none;
 }
+/* card img end */
 
+/* card information start */
 .card-item .item-information {
 	display: flex;
 	flex-direction: column;
@@ -573,6 +625,9 @@ nav .feature {
 	font-weight: 700;
 	color: var(--main-color);
 }
+/* card information end */
+
+/* item price start */
 .card-item .item-price {
 	width: 100%;
 	display: flex;
@@ -596,8 +651,11 @@ nav .feature {
 .item-shop svg {
 	color: white;
 }
+/* item price start */
+/* product item end */
+/* todo: PRODUCT END */
 
-/* CONTACT */
+/* todo: CONTACT START */
 .container .contact-content {
 	width: 100%;
 	display: flex;
@@ -607,6 +665,8 @@ nav .feature {
 	padding: 1rem;
 	margin-bottom: 6.5rem;
 }
+
+/* map start */
 .contact-content .map {
 	width: 50%;
 	aspect-ratio: 7/5;
@@ -616,7 +676,9 @@ nav .feature {
 	-webkit-box-shadow: 0px 9px 19px -10px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 0px 9px 19px -10px rgba(0, 0, 0, 0.75);
 }
+/* map end */
 
+/* contact form start */
 .contact-content form {
 	width: 50%;
 	aspect-ratio: 7/5;
@@ -626,6 +688,7 @@ nav .feature {
 	align-items: center;
 	gap: 1rem;
 }
+/* input grub */
 .contact-content form .input-grub {
 	width: 100%;
 	display: flex;
@@ -658,6 +721,7 @@ form .input-grub input {
 	opacity: 0.9;
 }
 
+/* form btn */
 form .form-btn {
 	width: 8rem;
 	height: 42px;
@@ -675,3 +739,5 @@ form .form-btn {
 form .form-btn:active {
 	transform: scale(0.95);
 }
+/* contact form end */
+/* todo: CONTACT END */

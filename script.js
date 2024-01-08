@@ -8,12 +8,12 @@ const shopIcon = document.querySelector('.shop');
 const shopCard = document.querySelector('.shop-card');
 const loves = document.querySelectorAll('.item-love');
 
-// taskBox.classList.toggle('overflow', taskBox.offsetHeight > 204);
+// !taskBox.classList.toggle('overflow', taskBox.offsetHeight > 204);
 
-// !variabel status yang disimpan di JSON
+// variabel status yang disimpan di JSON
 let likes = JSON.parse(localStorage.getItem('love-item')) || [];
 
-// function untuk menampilkan love in caed product
+// !function untuk menampilkan love in caed product
 // function showLove() {
 // 	loves.forEach((item, id) => {
 // 		let loveInfo = likes[id] || { status: 'false' }; // Menggunakan nilai default jika informasi love tidak ada di localStorage
@@ -26,7 +26,6 @@ let likes = JSON.parse(localStorage.getItem('love-item')) || [];
 // 		}
 // 	});
 // }
-
 // showLove();
 
 // menambahkan smooth scrollibg pada semua element yang memiliki targer #href
@@ -43,12 +42,12 @@ links.forEach((link) => {
 	});
 });
 
-// function updatestatus
+// !function updatestatus
 function updateStatus(selectLove) {
 	selectLove.classList.toggle('love-active');
-	// let loveId = selectLove.id;
+	let loveId = selectLove.id;
 	// likes[loveId].status = selectLove.classList.contains('love-active') ? 'true' : 'false';
-	// localStorage.setItem('love-item', JSON.stringify(likes));
+	localStorage.setItem('love-item', JSON.stringify(likes));
 }
 
 // function hamburger if click
