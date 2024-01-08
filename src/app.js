@@ -88,15 +88,28 @@ form.addEventListener('keyup', function () {
 });
 
 // kirim data ketila checkout diclick
-customerBtn.addEventListener('click', function (e) {
+customerBtn.addEventListener('click', async function (e) {
 	e.preventDefault();
 	const formData = new FormData(form);
 	const data = new URLSearchParams(formData);
 	const objData = Object.fromEntries(data);
 
-	const message = formatMessage(objData);
+	// const message = formatMessage(objData);
+	// window.open('http://wa.me/6282299841605?text=' + encodeURIComponent(message));
 
-	window.open('http://wa.me/6285326874359?text=' + encodeURIComponent(message));
+	// minta trassaksi token menggunakan ajax
+	try {
+		const response = await fetch('php/plachOrder.php', {
+			method: 'POST',
+			body: data,
+		});
+
+		const token = await response.text();
+		window.snap.pay(token);
+		// console.log(token);
+	} catch (err) {
+		console.log(err);
+	}
 });
 
 // format pesan whatsapp
