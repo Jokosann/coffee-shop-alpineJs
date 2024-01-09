@@ -1,3 +1,4 @@
+/* 1024PX */
 @media screen and (max-width: 1024px) {
 	nav {
 		max-width: 920px;
@@ -35,6 +36,7 @@
 	}
 }
 
+/* 920PX */
 @media screen and (max-width: 920px) {
 	nav {
 		max-width: 768px;
@@ -77,6 +79,7 @@
 	}
 }
 
+/* 768PX */
 @media screen and (max-width: 768px) {
 	nav {
 		max-width: 600px;
@@ -230,6 +233,7 @@
 	}
 }
 
+/* 600 */
 @media screen and (max-width: 600px) {
 	nav {
 		max-width: calc(100% - 2rem);
@@ -274,6 +278,7 @@
 	}
 }
 
+/* 512PX */
 @media screen and (max-width: 512px) {
 	/* HEADER */
 	.feature .search-input {
@@ -303,30 +308,11 @@
 	}
 }
 
+/* 420PX */
 @media screen and (max-width: 420px) {
-	nav {
-		height: 45px;
-	}
-	nav .logo {
-		font-size: 1.2rem;
-	}
-	nav .feature .feather {
-		width: 15px;
-		height: 15px;
-	}
-	.feature .hamburger {
-		row-gap: 4px;
-	}
-	.hamburger.hamburger-active div:nth-child(1) {
-		transform: rotate(40deg) translate(4px, 4x);
-	}
-	.hamburger.hamburger-active div:nth-child(3) {
-		transform: rotate(-40deg) translate(4px, -4px);
-	}
-
 	/* HEADER */
 	.feature .search-input {
-		width: 60vw;
+		width: 70vw;
 	}
 	.feature .shop-card.shop-active {
 		width: 100%;

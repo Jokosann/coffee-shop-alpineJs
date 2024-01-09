@@ -17,7 +17,7 @@
 		<link rel="stylesheet" href="src/css/style.css" />
 		<!-- alpineJS -->
 		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-		<!-- app(alpineJS) -->
+		<!-- alpine-app.js -->
 		<script src="src/app.js" async></script>
 		<!-- midtrans -->
 		<script
@@ -55,7 +55,7 @@
 					<!-- search-input start -->
 					<div class="search-input">
 						<i id="search-icon" data-feather="search"></i>
-						<input type="search" id="search" placeholder="Search Products..." />
+						<input type="search" name="search" id="search" placeholder="Search Products..." />
 					</div>
 					<!-- search end -->
 
@@ -72,7 +72,7 @@
 
 					<!-- shop-card start-->
 					<div class="shop-card">
-						<div class="coffee-user-container">
+						<div class="shop-card-container">
 							<template x-for="(item, index) in $store.cart.items" x-keys="index">
 								<div class="coffee-user">
 									<img :src="`/assets/images/${item.img}`" :alt="item.name" />
@@ -88,59 +88,59 @@
 									</div>
 								</div>
 							</template>
-						</div>
 
-						<!-- cart empty start -->
-						<h4 x-show="!$store.cart.items.length" class="empty">Cart Is Empty</h4>
-						<!-- cart empty end -->
+							<!-- cart empty start -->
+							<h4 x-show="!$store.cart.items.length" class="empty">Cart Is Empty</h4>
+							<!-- cart empty end -->
 
-						<!-- price start -->
-						<div x-show="$store.cart.items.length" class="price-coffee">
-							<p>total : <span x-text="rupiah($store.cart.total)"></span></p>
-						</div>
-						<!-- price end -->
+							<!-- price start -->
+							<div x-show="$store.cart.items.length" class="price-coffee">
+								<p>total : <span x-text="rupiah($store.cart.total)"></span></p>
+							</div>
+							<!-- price end -->
 
-						<!-- customer start -->
-						<div x-show="$store.cart.items.length" class="customer">
-							<h2>Customer Detail</h2>
-							<form id="checkout-form">
-								<input
-									type="hidden"
-									name="items"
-									x-model="JSON.stringify($store.cart.items)"
-								/>
-								<input type="hidden" name="total" x-model="$store.cart.total" />
-								<div class="customer-input-grub">
-									<i data-feather="user"></i>
+							<!-- customer start -->
+							<div x-show="$store.cart.items.length" class="customer">
+								<h2>Customer Detail</h2>
+								<form id="checkout-form">
 									<input
-										type="text"
-										name="name"
-										autocomplete="off"
-										placeholder="John Anderson"
+										type="hidden"
+										name="items"
+										x-model="JSON.stringify($store.cart.items)"
 									/>
-								</div>
-								<div class="customer-input-grub">
-									<i data-feather="mail"></i>
-									<input
-										type="email"
-										name="email"
-										autocomplete="off"
-										placeholder="exempel@gmail.com"
-									/>
-								</div>
-								<div class="customer-input-grub">
-									<i data-feather="phone"></i>
-									<input
-										type="number"
-										name="phone"
-										autocomplete="off"
-										placeholder="0812-3456-7890"
-									/>
-								</div>
-							</form>
-							<button type="submit" class="customer-btn disabled">Checkout</button>
+									<input type="hidden" name="total" x-model="$store.cart.total" />
+									<div class="customer-input-grub">
+										<i data-feather="user"></i>
+										<input
+											type="text"
+											name="name"
+											autocomplete="off"
+											placeholder="John Anderson"
+										/>
+									</div>
+									<div class="customer-input-grub">
+										<i data-feather="mail"></i>
+										<input
+											type="email"
+											name="email"
+											autocomplete="off"
+											placeholder="exempel@gmail.com"
+										/>
+									</div>
+									<div class="customer-input-grub">
+										<i data-feather="phone"></i>
+										<input
+											type="number"
+											name="phone"
+											autocomplete="off"
+											placeholder="0812-3456-7890"
+										/>
+									</div>
+								</form>
+								<button type="submit" class="customer-btn disabled">Checkout</button>
+							</div>
+							<!-- customer end -->
 						</div>
-						<!-- customer end -->
 					</div>
 					<!-- shop card end -->
 
@@ -213,20 +213,6 @@
 							enticed passersby. With its rustic charm and comfortable seating, the coffee shop
 							provided a perfect retreat for caffeine enthusiasts.
 						</p>
-						<!-- <ol style="list-style-type: lower-greek">
-							<li>
-								Nestled in the heart of the city, the coffee shop boasts a cozy ambiance and
-								aromatic brews.
-							</li>
-							<li>
-								Nestled in the heart of the city, the coffee shop boasts a cozy ambiance and
-								aromatic brews.
-							</li>
-							<li>
-								The barista skillfully prepares a variety of espresso-based drinks, from
-								classic lattes to velvety cappuccinos.
-							</li>
-						</ol> -->
 					</div>
 					<!-- about-content end -->
 				</div>
@@ -250,7 +236,6 @@
 
 				<!-- product-item start -->
 				<div class="product-item">
-					<!-- card start -->
 					<template x-for="(item, index) in items" x-key="index">
 						<div class="card-item">
 							<div class="love-parent">
@@ -292,7 +277,6 @@
 							</div>
 						</div>
 					</template>
-					<!-- card end-->
 				</div>
 				<!-- product-item end -->
 			</div>

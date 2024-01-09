@@ -106,7 +106,6 @@ customerBtn.addEventListener('click', async function (e) {
 
 		const token = await response.text();
 		window.snap.pay(token);
-		// console.log(token);
 	} catch (err) {
 		console.log(err);
 	}

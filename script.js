@@ -6,9 +6,11 @@ const searchInput = document.querySelector('.search-input');
 const searchInputBox = document.getElementById('search');
 const shopIcon = document.querySelector('.shop');
 const shopCard = document.querySelector('.shop-card');
-const loves = document.querySelectorAll('.item-love');
+const shopCardContainer = document.querySelector('.shop-card-container');
+// const loves = document.querySelectorAll('.item-love');
 
-// !taskBox.classList.toggle('overflow', taskBox.offsetHeight > 204);
+// add clas overflow to shop-card
+shopCard.classList.toggle('overflow', shopCardContainer.offsetHeight > 521);
 
 // variabel status yang disimpan di JSON
 let likes = JSON.parse(localStorage.getItem('love-item')) || [];
