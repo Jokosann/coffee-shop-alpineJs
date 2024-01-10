@@ -96,6 +96,9 @@ nav .feature {
 	color: var(--bg-color);
 }
 /* search start */
+.feature .search {
+	font-size: 15px;
+}
 .feature .search-input {
 	position: absolute;
 	width: 30vw;
@@ -111,9 +114,7 @@ nav .feature {
 .feature .search-input.search-active {
 	height: 45px;
 }
-.feature .search-input .feather {
-	width: 14px;
-	height: 14px;
+.feature .search-input i {
 	display: none;
 }
 .feature .search-input input {
@@ -138,14 +139,13 @@ nav .feature {
 	border: none;
 	outline: none;
 }
-.feature .search-input.search-active .feather {
+.feature .search-input.search-active i {
 	position: absolute;
 	top: 50%;
 	left: 1rem;
 	transform: translateY(-50%);
 	display: block;
-	width: 16px;
-	height: 16px;
+	font-size: 15px;
 }
 .feature .search-input.search-active input {
 	display: block;
@@ -157,6 +157,7 @@ nav .feature {
 /* shop icon start */
 .feature .shop {
 	position: relative;
+	font-size: 15px;
 }
 .feature .shop .quantity {
 	font-family: var(--poppins-font);
@@ -202,6 +203,7 @@ nav .feature {
 	width: 100%;
 	height: fit-content;
 	box-sizing: border-box;
+	padding-bottom: 0.5rem;
 }
 .feature .shop-card.shop-active {
 	width: 380px;
@@ -225,12 +227,12 @@ nav .feature {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
-	padding-block: 0.7rem;
+	padding-block: 0.8rem;
 	border-bottom: 0.4mm dotted var(--container-color);
 }
 .shop-card .coffee-user img {
-	width: 40px;
-	height: 40px;
+	width: 44px;
+	height: 44px;
 	border-radius: 50%;
 }
 .shop-card .coffee-user .coffee-detail {
@@ -241,7 +243,7 @@ nav .feature {
 }
 .shop-card .coffee-user .coffee-detail p {
 	font-weight: 800;
-	font-size: 12px;
+	font-size: 14px;
 	letter-spacing: 1px;
 	font-family: var(--playfair-font);
 	color: var(--container-color);
@@ -253,7 +255,7 @@ nav .feature {
 	gap: 0.3rem;
 }
 .shop-card .coffee-user .coffee-detail .counts span {
-	font-size: 11px;
+	font-size: 13px;
 }
 .coffee-user .coffee-detail .counts button {
 	background-color: var(--container-color);
@@ -276,8 +278,9 @@ nav .feature {
 }
 .shop-card .price-coffee p {
 	text-transform: capitalize;
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 500;
+	color: var(--container-color);
 }
 .shop-card .price-coffee p span {
 	font-size: 14px;
@@ -296,7 +299,7 @@ nav .feature {
 .shop-card .customer h2 {
 	font-family: var(--poppins-font);
 	font-weight: 600;
-	font-size: 14px;
+	font-size: 16px;
 	text-align: center;
 	padding: 0.8rem 0 0;
 }
@@ -309,7 +312,7 @@ nav .feature {
 }
 .shop-card .customer form .customer-input-grub {
 	width: 100%;
-	height: 30px;
+	height: 32px;
 	border-radius: 4px;
 	position: relative;
 	background-color: var(--bg-color);
@@ -342,7 +345,7 @@ nav .feature {
 	border: none;
 	border-radius: 4px;
 	color: var(--bg-color);
-	height: 30px;
+	height: 32px;
 	width: 5rem;
 	padding-inline: 0.8rem;
 	cursor: pointer;
@@ -585,13 +588,12 @@ nav .feature {
 	gap: 0.1rem;
 	cursor: pointer;
 }
-.card-item .item-love.love-active svg {
-	fill: red;
+.card-item .item-love.love-active i {
 	color: red;
 }
-.card-item .item-love svg {
-	width: 16px;
-	height: 16px;
+.card-item .item-love i {
+	font-size: 15px;
+	color: var(--text-color);
 }
 .love-parent .total-love {
 	font-family: var(--playfair-font);
@@ -670,8 +672,9 @@ nav .feature {
 	background-color: var(--second-color);
 	cursor: pointer;
 }
-.item-shop svg {
+.item-shop i {
 	color: white;
+	font-size: 13px;
 }
 /* item price start */
 /* product item end */

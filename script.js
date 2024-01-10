@@ -47,9 +47,13 @@ links.forEach((link) => {
 // !function updatestatus
 function updateStatus(selectLove) {
 	selectLove.classList.toggle('love-active');
-	let loveId = selectLove.id;
+	const love = Array.from(selectLove.children)[0];
+	love.className = `fa-${
+		selectLove.classList.contains('love-active') ? 'solid' : 'regular'
+	} fa-heart`;
+	// let loveId = selectLove.id;
 	// likes[loveId].status = selectLove.classList.contains('love-active') ? 'true' : 'false';
-	localStorage.setItem('love-item', JSON.stringify(likes));
+	// localStorage.setItem('love-item', JSON.stringify(likes));
 }
 
 // function hamburger if click

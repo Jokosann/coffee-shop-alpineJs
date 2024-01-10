@@ -11,6 +11,11 @@
 			href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
+		<!-- fontawesome  -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			rel="stylesheet"
+		/>
 		<!-- feather icon -->
 		<script src="https://unpkg.com/feather-icons"></script>
 		<!-- styleCSS -->
@@ -48,20 +53,20 @@
 				<div class="feature">
 					<!-- search start -->
 					<div class="search">
-						<i id="search-icon" data-feather="search"></i>
+						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>
 					<!-- search end -->
 
 					<!-- search-input start -->
 					<div class="search-input">
-						<i id="search-icon" data-feather="search"></i>
+						<i class="fa-solid fa-magnifying-glass"></i>
 						<input type="search" name="search" id="search" placeholder="Search Products..." />
 					</div>
 					<!-- search end -->
 
 					<!-- shop start -->
 					<div class="shop">
-						<i data-feather="shopping-cart"></i>
+						<i class="fa-solid fa-bag-shopping"></i>
 						<span
 							class="quantity"
 							x-show="$store.cart.quantity"
@@ -240,15 +245,7 @@
 						<div class="card-item">
 							<div class="love-parent">
 								<div class="item-love" :id="item.id" onclick="updateStatus(this)">
-									<svg
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									>
-										<use href="/assets/feather-sprite.svg#heart" />
-									</svg>
+									<i class="fa-regular fa-heart"></i>
 								</div>
 								<span class="total-love">1.3k</span>
 							</div>
@@ -262,17 +259,7 @@
 							<div class="item-price">
 								<p x-text="rupiah(item.price)"></p>
 								<div class="item-shop" @click="$store.cart.add(item)">
-									<svg
-										width="13"
-										height="13"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									>
-										<use href="/assets/feather-sprite.svg#shopping-cart" />
-									</svg>
+									<i class="fa-solid fa-bag-shopping"></i>
 								</div>
 							</div>
 						</div>
