@@ -80,7 +80,7 @@
 						<div class="shop-card-container">
 							<template x-for="(item, index) in $store.cart.items" x-keys="index">
 								<div class="coffee-user">
-									<img :src="`/assets/images/${item.img}`" :alt="item.name" />
+									<img :src="`assets/images/${item.img}`" :alt="item.name" />
 									<div class="coffee-detail">
 										<p x-text="item.name"></p>
 										<div class="counts">
